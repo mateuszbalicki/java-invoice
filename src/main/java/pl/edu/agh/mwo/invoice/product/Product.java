@@ -2,17 +2,16 @@ package pl.edu.agh.mwo.invoice.product;
 
 import java.math.BigDecimal;
 
-public abstract class Product {
+public class Product {
+
     private final String name;
-
     private final BigDecimal price;
-
     private final BigDecimal taxPercent;
 
     protected Product(String name, BigDecimal price, BigDecimal tax) throws IllegalArgumentException {
         if (name == null ||  price == null || tax == null) {
             throw new IllegalArgumentException();
-        } else if (name.equals("") ||  price.equals("") || tax.equals("")) {
+        } else if (name.isBlank() ||  price.equals("") || tax.equals("")) {
             throw new IllegalArgumentException();
         } else if (price.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException();
