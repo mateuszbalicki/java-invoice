@@ -9,9 +9,12 @@ import pl.edu.agh.mwo.invoice.product.Product;
 
 public class Invoice {
     private Collection<Product> products;
+    private String invoiceNumber;
+    private static int lastInvoiceNumber = 1000;
 
     public Invoice() {
         this.products = new ArrayList<>();
+        this.invoiceNumber = "FV" + String.valueOf(lastInvoiceNumber++);
     }
 
     public void addProduct(Product product) throws  IllegalArgumentException {
@@ -56,5 +59,9 @@ public class Invoice {
             total = total.add(product.getPriceWithTax());
         }
         return total;
+    }
+
+    public String getInvoiceNumber() {
+        return invoiceNumber;
     }
 }
