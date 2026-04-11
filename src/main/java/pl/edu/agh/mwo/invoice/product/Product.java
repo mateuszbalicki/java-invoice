@@ -8,7 +8,8 @@ public class Product {
     private final BigDecimal price;
     private final BigDecimal taxPercent;
 
-    protected Product(String name, BigDecimal price, BigDecimal tax) throws IllegalArgumentException {
+    protected Product(String name, BigDecimal price, BigDecimal tax)
+            throws IllegalArgumentException {
         if (name == null ||  price == null || tax == null) {
             throw new IllegalArgumentException();
         } else if (name.isBlank() ||  price.equals("") || tax.equals("")) {

@@ -17,8 +17,9 @@ public class Invoice {
     public void addProduct(Product product) throws  IllegalArgumentException {
         if (product == null || product.equals("")) {
             throw new IllegalArgumentException();
-        } else
+        } else {
             this.products.add(product);
+        }
     }
 
     public void addProduct(Product product, Integer quantity) throws  IllegalArgumentException {
@@ -26,10 +27,11 @@ public class Invoice {
             throw new IllegalArgumentException();
         } else if (quantity == null || quantity.equals("") || quantity == 0 || quantity < 0) {
             throw new IllegalArgumentException();
-        } else
+        } else {
             for (int i = 0; i < quantity; i++) {
                 this.products.add(product);
             }
+        }
     }
 
     public BigDecimal getSubtotal() {
